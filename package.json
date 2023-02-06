@@ -29,16 +29,17 @@
     "LICENSE"
   ],
   "dependencies": {
-    "through2": "~0.6.3",
-    "gulp-util": "~3.0.1"
+    "fancy-log": "^2.0.0",
+    "plugin-error": "^2.0.1",
+    "through2": "~4.0.2"
   },
   "devDependencies": {
     "expect.js": "~0.3.1",
-    "gulp-mocha": "~1.1.1",
-    "gulp-jshint": "~1.9.0",
-    "gulp": "~3.8.10",
-    "gulp-filter": "~1.0.2",
-    "vinyl": "~0.4.3",
-    "handlebars": "~2.0.0"
+    "gulp": "~4.0.2",
+    "gulp-filter": "~7.0.0",
+    "gulp-jshint": "~2.1.0",
+    "gulp-mocha": "~8.0.0",
+    "handlebars": "~4.7.7",
+    "vinyl": "~3.0.0"
   }
 }

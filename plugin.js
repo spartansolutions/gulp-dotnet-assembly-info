@@ -1,7 +1,7 @@
 var through = require('through2'),
-    gulp = require('gulp-util'),
+    log = require('fancy-log'),
     fs = require('fs'),
-    PluginError = gulp.PluginError;
+    PluginError = require('plugin-error');
 
 var PLUGIN_NAME = 'gulp-dotnet-assembly-info';
 
@@ -28,7 +28,7 @@ function assemblyInfo(config) {
         }
 
         if (file.isBuffer()) {
-            gulp.log('Updating assembly info file \'' + file.path + '\'...');
+            log('Updating assembly info file \'' + file.path + '\'...');
 
             var assemblyInfo = file.contents.toString();
 
@@ -38,11 +38,11 @@ function assemblyInfo(config) {
                 var replacement = config[attribute];
                 assemblyInfo = assemblyInfo.replace(regex, function(match, p1, p2, p3) {
                     var value = replacement instanceof Function ? replacement(p2) : replacement;
-                    gulp.log('\tSetting attribute \'' + attributeName + '\' to \'' + value + '\'.');
+                    log('\tSetting attribute \'' + attributeName + '\' to \'' + value + '\'.');
                     return p1 + value + p3;
                 });
             });
-            file.contents = new Buffer(assemblyInfo);
+            file.contents = Buffer.from(assemblyInfo);
         }
 
         this.push(file);

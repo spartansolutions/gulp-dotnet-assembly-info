@@ -1,7 +1,7 @@
 var expect = require('expect.js'),
     File = require('vinyl'),
     Handlebars = require('handlebars'),
-    PluginError = require('gulp-util').PluginError,
+    PluginError = require('plugin-error'),
     assemblyInfo = require('../plugin.js');
 
 describe('gulp-dotnet-assembly-info', function() {
@@ -36,12 +36,12 @@ describe('gulp-dotnet-assembly-info', function() {
     beforeEach(function() {
         csAssemblyInfo = new File({
             path: defaultAssemblyInfoFilePath,
-            contents: new Buffer(csAssemblyInfoFile)
+            contents: Buffer.from(csAssemblyInfoFile)
         });
 
         vbAssemblyInfo = new File({
             path: defaultAssemblyInfoFilePath,
-            contents: new Buffer(vbAssemblyInfoFile)
+            contents: Buffer.from(vbAssemblyInfoFile)
         });
     });
 
